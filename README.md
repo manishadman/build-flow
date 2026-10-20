@@ -4,6 +4,10 @@ BuildFlow is a full-stack project management application designed to help organi
 
 The application was built from scratch as a full-stack software engineering project using React, Node.js, Express, MongoDB, and JWT-based authentication.
 
+## Live Demo
+
+[Open BuildFlow](https://build-flow-lpj8.onrender.com)
+
 ## Screenshots
 
 ### Dashboard
