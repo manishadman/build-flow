@@ -43,12 +43,17 @@ export function AuthProvider({ children }) {
     setUser(null);
   }
 
+  function updateUser(userData) {
+    setUser(userData);
+  }
+
   const value = {
     user,
     token,
     isAuthenticated: Boolean(token),
     login,
     logout,
+    updateUser,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
