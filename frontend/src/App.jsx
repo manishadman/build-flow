@@ -10,6 +10,7 @@ import OrganizationPage from "./pages/OrganizationPage.jsx";
 import ProjectPage from "./pages/ProjectPage.jsx";
 import TaskPage from "./pages/TaskPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
+import EditProfilePage from "./pages/EditProfilePage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 export default function App() {
@@ -36,6 +37,8 @@ export default function App() {
         <Route path="/tasks/:taskId" element={<TaskPage />} />
 
         <Route path="/profile" element={<ProfilePage />} />
+
+        <Route path="/profile/edit" element={<EditProfilePage />} />
       </Route>
 
       <Route path="*" element={<NotFoundPage />} />

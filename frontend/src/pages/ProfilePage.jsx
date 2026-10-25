@@ -1,10 +1,22 @@
+import { Link } from "react-router-dom";
+
 import { useAuth } from "../context/AuthContext.jsx";
 
 export default function ProfilePage() {
   const { user } = useAuth();
 
-  const firstName = user?.firstName || "";
-  const lastName = user?.lastName || "";
+  if (!user) {
+    return (
+      <div className="page">
+        <div className="card">
+          <p className="mb-0">Loading profile...</p>
+        </div>
+      </div>
+    );
+  }
+
+  const firstName = user.firstName || "";
+  const lastName = user.lastName || "";
   const fullName = `${firstName} ${lastName}`.trim() || "BuildFlow User";
 
   const initials =
@@ -18,6 +30,10 @@ export default function ProfilePage() {
 
           <p className="page-subtitle">Your BuildFlow account information.</p>
         </div>
+
+        <Link to="/profile/edit" className="btn btn-primary">
+          Edit profile
+        </Link>
       </div>
 
       <div className="profile-layout">
@@ -26,7 +42,7 @@ export default function ProfilePage() {
 
           <h2>{fullName}</h2>
 
-          <p>{user?.email || "No email available"}</p>
+          <p>{user.email || "No email available"}</p>
 
           <span className="badge badge-info">BuildFlow Member</span>
         </div>
@@ -56,7 +72,13 @@ export default function ProfilePage() {
             <div className="profile-field profile-field-full">
               <span className="profile-field-label">Email address</span>
 
-              <span className="profile-field-value">{user?.email || "—"}</span>
+              <span className="profile-field-value">{user.email || "—"}</span>
+            </div>
+
+            <div className="profile-field profile-field-full">
+              <span className="profile-field-label">Telephone number</span>
+
+              <span className="profile-field-value">{user.phone || "—"}</span>
             </div>
           </div>
 
